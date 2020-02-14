@@ -16,8 +16,23 @@ def reconstruct_trip(tickets, length):
     hashtable = HashTable(length)
     route = [None] * length
 
-    """
-    YOUR CODE HERE
-    """
+    for i in range(length):
+        if tickets[i].source == "NONE":
+            route[0]=tickets[i].destination
+        hash_table_insert(hashtable,tickets[i].source, tickets[i].destination)
+    stop = True
+    index = 0
+    while stop:
+        print(hash_table_retrieve(hashtable, route[index]))
+        if hash_table_retrieve(hashtable, route[index]) == "NONE":
+            return route[:-1]
+        else:
+            
+            route[index + 1] = hash_table_retrieve(hashtable, route[index])
+            index += 1
+    
+    
 
-    pass
+        
+    
+    return None
