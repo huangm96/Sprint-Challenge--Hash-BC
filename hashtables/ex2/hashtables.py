@@ -28,7 +28,7 @@ def hash(string, max):
 
 def hash_table_insert(hash_table, key, value):
     index = hash(key, len(hash_table.storage))
-
+    print("index", index)
     current_pair = hash_table.storage[index]
     last_pair = None
 
